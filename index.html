@@ -37,7 +37,6 @@
         .phone-link { color: var(--text-light); text-decoration: none; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; transition: color 0.3s; position: relative; z-index: 999; }
         .phone-link:hover { color: var(--gold); }
         
-        /* Новый блок с предупреждением */
         .warning-box {
             background-color: var(--warning-bg);
             border-left: 3px solid var(--gold);
@@ -111,7 +110,6 @@
 
     <header>
         <div class="logo">Студия красоты Катерина</div>
-        <!-- Убрал длинную кнопку из шапки, чтобы не мешала -->
         <a href="https://telegram.me/parik_katya_bot" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Записаться</a>
     </header>
 
@@ -124,7 +122,6 @@
                 <a href="https://telegram.me/parik_katya_bot" target="_blank" rel="noopener noreferrer" class="btn">Перейти в Telegram-бот</a>
                 <a href="tel:+79852145794" class="phone-link">📞 8 985 214-57-94</a>
                 
-                <!-- НОВЫЙ БЛОК С ПРЕДУПРЕЖДЕНИЕМ И КНОПКОЙ КОПИРОВАНИЯ -->
                 <div class="warning-box">
                     <strong>⚠️ ВНИМАНИЕ!</strong> Роскомнадзор может блокировать внешние ссылки на Телеграм. Если кнопка не работает:<br>
                     1. Нажмите кнопку ниже, чтобы скопировать ник бота.<br>
@@ -230,21 +227,24 @@
         </div>
         
         <p class="copyright" style="border: none;">
-            &copy; 2024 Студия красоты Катерина. Все права защищены.<br>
-            <span style="color: var(--gold); font-weight: bold; font-size: 1.1rem; margin-top: 10px; display: inline-block; letter-spacing: 1px;">⚡ Версия сайта 5.0 ⚡</span>
+            &copy; <span id="current-year"></span> Студия красоты Катерина. Все права защищены.<br>
+            <span style="color: var(--gold); font-weight: bold; font-size: 1.1rem; margin-top: 10px; display: inline-block; letter-spacing: 1px;">⚡ Версия сайта 6.0 ⚡</span>
         </p>
     </footer>
 
     <!-- Скрипт для копирования ссылки в буфер обмена -->
     <script>
         function copyBotLink() {
-            const botLink = "@parik_katya_bot"; // Копируем именно ник для поиска в ТГ
+            const botLink = "@parik_katya_bot";
             navigator.clipboard.writeText(botLink).then(() => {
                 alert("✅ Ник бота скопирован!\n\n1. Откройте Telegram.\n2. Вставьте его в строку поиска (или в Избранное).\n3. Перейдите в бота.");
             }).catch(err => {
                 alert("Не удалось скопировать. Пожалуйста, выделите и скопируйте ник вручную: @parik_katya_bot");
             });
         }
+
+        // Скрипт для автоматического обновления года
+        document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
