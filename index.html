@@ -94,7 +94,11 @@
         footer h2 { font-size: 2.5rem; color: var(--gold); margin-bottom: 15px; }
         footer p { margin-bottom: 30px; color: #bbb; font-size: 1.1rem; }
         .footer-contacts { display: flex; justify-content: center; align-items: center; gap: 30px; margin-bottom: 50px; flex-wrap: wrap; }
+        
         .copyright { font-size: 0.8rem; color: #666; border-top: 1px solid #333; padding-top: 20px; }
+        .developer-credit { margin-top: 15px; font-size: 0.85rem; color: #888; }
+        .developer-credit a { color: var(--gold); text-decoration: none; font-weight: bold; transition: color 0.3s; }
+        .developer-credit a:hover { color: #fff; }
         
         @media (max-width: 768px) { 
             .hero { flex-direction: column; text-align: center; padding: 40px 5%; } 
@@ -226,13 +230,19 @@
             <a href="https://telegram.me/parik_katya_bot" target="_blank" rel="noopener noreferrer" class="btn">Открыть бота в Telegram</a>
         </div>
         
-        <p class="copyright" style="border: none;">
+        <div class="copyright">
             &copy; <span id="current-year"></span> Студия красоты Катерина. Все права защищены.<br>
-            <span style="color: var(--gold); font-weight: bold; font-size: 1.1rem; margin-top: 10px; display: inline-block; letter-spacing: 1px;">⚡ Версия сайта 6.0 ⚡</span>
-        </p>
+            
+            <!-- СТРОКА РАЗРАБОТЧИКА -->
+            <div class="developer-credit">
+                Сделано на <span>HTML & CSS</span>. Разработка сайта: <a href="https://t.me/Valery3298" target="_blank">@Valery3298</a>
+            </div>
+            <!-- КОНЕЦ СТРОКИ РАЗРАБОТЧИКА -->
+
+            <span style="color: var(--gold); font-weight: bold; font-size: 1.1rem; margin-top: 10px; display: inline-block; letter-spacing: 1px;">⚡ Версия сайта 9.0 ⚡</span>
+        </div>
     </footer>
 
-    <!-- Скрипт для копирования ссылки в буфер обмена -->
     <script>
         function copyBotLink() {
             const botLink = "@parik_katya_bot";
@@ -243,7 +253,6 @@
             });
         }
 
-        // Скрипт для автоматического обновления года
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
