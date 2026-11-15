@@ -12,226 +12,98 @@
             --gold: #c5a059;
             --text-light: #fdfbf7;
             --text-dark: #333;
+            --warning-bg: rgba(197, 160, 89, 0.15);
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
         h1, h2, h3, .logo { font-family: 'Playfair Display', serif; }
-
-        header {
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: var(--bg-dark);
-            color: var(--gold);
-            border-bottom: 1px solid var(--gold);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
+        
+        header { padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; background: var(--bg-dark); color: var(--gold); border-bottom: 1px solid var(--gold); position: sticky; top: 0; z-index: 100; }
         .logo { font-size: 1.4rem; letter-spacing: 1px; font-style: italic; }
-
-        /* Добавлен z-index и position */
-        .btn {
-            display: inline-block;
-            background-color: var(--gold);
-            color: var(--bg-dark);
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: 1px solid var(--gold);
-            cursor: pointer;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            text-align: center;
-            line-height: 1.4;
-            position: relative;
-            z-index: 999; /* Защита от перекрытия */
-        }
-
+        
+        .btn { display: inline-block; background-color: var(--gold); color: var(--bg-dark); padding: 12px 24px; text-decoration: none; border-radius: 4px; font-weight: 600; transition: all 0.3s; border: 1px solid var(--gold); cursor: pointer; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; text-align: center; line-height: 1.4; position: relative; z-index: 999; }
         .btn:hover { background-color: transparent; color: var(--gold); }
         .btn-outline { background: transparent; color: var(--gold); }
         .btn-outline:hover { background: var(--gold); color: var(--bg-dark); }
-
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 80px 10%;
-            gap: 50px;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            position: relative;
-        }
-
+        
+        .hero { display: flex; align-items: center; justify-content: space-between; padding: 80px 10%; gap: 50px; background-color: var(--bg-dark); color: var(--text-light); position: relative; }
         .hero-text { flex: 1; z-index: 10; }
         .hero-text h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px; font-weight: 400; }
         .hero-text p { font-size: 1.1rem; color: #ccc; margin-bottom: 30px; max-width: 90%; }
-
         .hero-image { flex: 1; text-align: center; z-index: 1; position: relative; }
-        .hero-image img {
-            max-width: 100%;
-            border-radius: 50% 50% 0 0;
-            border: 2px solid var(--gold);
-            padding: 10px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
-
-        .hero-actions { display: flex; flex-direction: column; gap: 15px; align-items: flex-start; position: relative; z-index: 999; }
+        .hero-image img { max-width: 100%; border-radius: 50% 50% 0 0; border: 2px solid var(--gold); padding: 10px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
         
-        .phone-link {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: color 0.3s;
-            position: relative;
-            z-index: 999;
-        }
+        .hero-actions { display: flex; flex-direction: column; gap: 15px; align-items: flex-start; position: relative; z-index: 999; }
+        .phone-link { color: var(--text-light); text-decoration: none; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; transition: color 0.3s; position: relative; z-index: 999; }
         .phone-link:hover { color: var(--gold); }
-
-        .bot-note {
-            font-size: 0.95rem;
-            color: #bbb;
-            margin-top: 5px;
-            width: 100%;
+        
+        /* Новый блок с предупреждением */
+        .warning-box {
+            background-color: var(--warning-bg);
+            border-left: 3px solid var(--gold);
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #ddd;
+            max-width: 450px;
         }
-        .bot-note b { color: var(--gold); }
-
-        .slogan-bar {
+        .warning-box strong { color: #fff; }
+        .warning-box .btn-copy {
+            display: inline-block;
             background-color: var(--gold);
             color: var(--bg-dark);
-            text-align: center;
-            padding: 15px;
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 1.2rem;
-            letter-spacing: 2px;
+            padding: 8px 15px;
+            margin-top: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+            font-size: 0.85rem;
+            transition: 0.3s;
         }
+        .warning-box .btn-copy:hover { background-color: #d4af37; }
 
+        .slogan-bar { background-color: var(--gold); color: var(--bg-dark); text-align: center; padding: 15px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.2rem; letter-spacing: 2px; }
+        
         .services { padding: 80px 10%; background: var(--bg-light); }
         .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: var(--bg-dark); }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background: #fff;
-            padding: 40px 30px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            transition: transform 0.3s;
-        }
-
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card { background: #fff; padding: 40px 30px; border: 1px solid #e0e0e0; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: transform 0.3s; }
         .service-card:hover { transform: translateY(-5px); border-color: var(--gold); }
-        .service-card h3 {
-            margin-bottom: 25px;
-            font-size: 1.5rem;
-            color: var(--gold);
-            text-align: center;
-            border-bottom: 1px solid var(--gold);
-            padding-bottom: 15px;
-        }
-
+        .service-card h3 { margin-bottom: 25px; font-size: 1.5rem; color: var(--gold); text-align: center; border-bottom: 1px solid var(--gold); padding-bottom: 15px; }
         .service-list { list-style: none; }
-        .service-list li {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px dashed #eee;
-            font-size: 0.95rem;
-        }
+        .service-list li { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px dashed #eee; font-size: 0.95rem; }
         .service-list li:last-child { border-bottom: none; }
         .price { font-weight: 600; white-space: nowrap; margin-left: 10px; color: var(--bg-dark); }
-
-        .how-to-book {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            padding: 60px 10%;
-            text-align: center;
-        }
-
+        
+        .how-to-book { background-color: var(--bg-dark); color: var(--text-light); padding: 60px 10%; text-align: center; }
         .how-to-book h2 { color: var(--gold); font-size: 2.2rem; margin-bottom: 40px; }
-
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .step {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 30px;
-            border-radius: 10px;
-            border: 1px solid rgba(197, 160, 89, 0.3);
-        }
-
-        .step-number {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background-color: var(--gold);
-            color: var(--bg-dark);
-            border-radius: 50%;
-            line-height: 40px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
+        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 40px; }
+        .step { background: rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 10px; border: 1px solid rgba(197, 160, 89, 0.3); }
+        .step-number { display: inline-block; width: 40px; height: 40px; background-color: var(--gold); color: var(--bg-dark); border-radius: 50%; line-height: 40px; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px; }
         .step p { font-size: 1rem; color: #ccc; }
-
+        
         .contacts { background-color: #fff; padding: 80px 10%; border-top: 1px solid #eee; }
-        .contacts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            text-align: center;
-        }
+        .contacts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: center; }
         .contact-item h4 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--gold); margin-bottom: 10px; }
         .contact-item p { font-size: 1.1rem; color: var(--text-dark); }
         .contact-item a { color: var(--text-dark); text-decoration: none; transition: color 0.3s; font-weight: 600;}
         .contact-item a:hover { color: var(--gold); }
-
-        footer {
-            background: var(--bg-dark);
-            color: var(--text-light);
-            text-align: center;
-            padding: 60px 20px 40px;
-            border-top: 3px solid var(--gold);
-        }
+        
+        footer { background: var(--bg-dark); color: var(--text-light); text-align: center; padding: 60px 20px 40px; border-top: 3px solid var(--gold); }
         footer h2 { font-size: 2.5rem; color: var(--gold); margin-bottom: 15px; }
         footer p { margin-bottom: 30px; color: #bbb; font-size: 1.1rem; }
-        
         .footer-contacts { display: flex; justify-content: center; align-items: center; gap: 30px; margin-bottom: 50px; flex-wrap: wrap; }
         .copyright { font-size: 0.8rem; color: #666; border-top: 1px solid #333; padding-top: 20px; }
-
-        @media (max-width: 768px) {
-            .hero { flex-direction: column; text-align: center; padding: 40px 5%; }
-            .hero-text h1 { font-size: 2.5rem; }
-            .hero-actions { align-items: center; justify-content: center; }
-            header { flex-direction: column; gap: 15px; }
-            .footer-contacts { flex-direction: column; gap: 15px; }
-            .bot-note { text-align: center; }
+        
+        @media (max-width: 768px) { 
+            .hero { flex-direction: column; text-align: center; padding: 40px 5%; } 
+            .hero-text h1 { font-size: 2.5rem; } 
+            .hero-actions { align-items: center; justify-content: center; } 
+            header { flex-direction: column; gap: 15px; } 
+            .footer-contacts { flex-direction: column; gap: 15px; } 
+            .warning-box { text-align: center; border-left: none; border-top: 3px solid var(--gold); }
         }
     </style>
 </head>
@@ -239,8 +111,8 @@
 
     <header>
         <div class="logo">Студия красоты Катерина</div>
-        <!-- Добавлен onclick -->
-        <a href="https://t.me/parik_katya_bot" onclick="window.open('https://t.me/parik_katya_bot', '_blank'); return false;" class="btn btn-outline">Студия красоты Катерина: @parik_katya_bot</a>
+        <!-- Убрал длинную кнопку из шапки, чтобы не мешала -->
+        <a href="https://telegram.me/parik_katya_bot" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Записаться</a>
     </header>
 
     <section class="hero">
@@ -249,10 +121,18 @@
             <p>Ваша красота в надёжных руках. Профессиональный уход, стрижки и сложное окрашивание любой сложности. Стиль, уверенность и вдохновение.</p>
             
             <div class="hero-actions">
-                <!-- Добавлен onclick -->
-                <a href="https://t.me/parik_katya_bot" onclick="window.open('https://t.me/parik_katya_bot', '_blank'); return false;" class="btn">Студия красоты Катерина: @parik_katya_bot</a>
+                <a href="https://telegram.me/parik_katya_bot" target="_blank" rel="noopener noreferrer" class="btn">Перейти в Telegram-бот</a>
                 <a href="tel:+79852145794" class="phone-link">📞 8 985 214-57-94</a>
-                <div class="bot-note">💬 Наш умный Telegram-бот <b>@parik_katya_bot</b> покажет свободное время и запишет вас за пару кликов!</div>
+                
+                <!-- НОВЫЙ БЛОК С ПРЕДУПРЕЖДЕНИЕМ И КНОПКОЙ КОПИРОВАНИЯ -->
+                <div class="warning-box">
+                    <strong>⚠️ ВНИМАНИЕ!</strong> Роскомнадзор может блокировать внешние ссылки на Телеграм. Если кнопка не работает:<br>
+                    1. Нажмите кнопку ниже, чтобы скопировать ник бота.<br>
+                    2. Откройте Telegram, найдите «Избранное» (или поиск).<br>
+                    3. Вставьте скопированный ник — бот откроется!<br>
+                    <button class="btn-copy" onclick="copyBotLink()">📋 Скопировать @parik_katya_bot</button>
+                </div>
+                <div class="bot-note" style="margin-top: 10px;">💬 Умный бот <b>@parik_katya_bot</b> покажет свободное время и запишет вас за пару кликов!</div>
             </div>
         </div>
         <div class="hero-image">
@@ -267,7 +147,6 @@
     <section class="services">
         <h2 class="section-title">Услуги и цены</h2>
         <div class="services-grid">
-            
             <div class="service-card">
                 <h3>Женские стрижки и уход</h3>
                 <ul class="service-list">
@@ -279,7 +158,6 @@
                     <li><span>Мытье головы + укладка</span> <span class="price">1200–2000 ₽</span></li>
                 </ul>
             </div>
-
             <div class="service-card">
                 <h3>Мужской зал</h3>
                 <ul class="service-list">
@@ -291,7 +169,6 @@
                     <li><span>Рисунки на голове</span> <span class="price">100–300 ₽</span></li>
                 </ul>
             </div>
-
             <div class="service-card">
                 <h3>Окрашивание и сложные техники</h3>
                 <ul class="service-list">
@@ -321,8 +198,7 @@
                 <p>Подтвердите запись. Бот сразу покажет адрес и напомнит о визите!</p>
             </div>
         </div>
-        <!-- Добавлен onclick -->
-        <a href="https://t.me/parik_katya_bot" onclick="window.open('https://t.me/parik_katya_bot', '_blank'); return false;" class="btn">Студия красоты Катерина: @parik_katya_bot</a>
+        <a href="https://telegram.me/parik_katya_bot" target="_blank" rel="noopener noreferrer" class="btn">Студия красоты Катерина: @parik_katya_bot</a>
     </section>
 
     <section class="contacts">
@@ -339,8 +215,7 @@
             <div class="contact-item">
                 <h4>📞 Контакты</h4>
                 <p><a href="tel:+79852145794">+7 985 214-57-94</a><br><br>
-                <!-- Добавлен onclick -->
-                <a href="https://t.me/parik_katya_bot" onclick="window.open('https://t.me/parik_katya_bot', '_blank'); return false;" style="color: var(--gold);">Студия красоты Катерина: @parik_katya_bot</a></p>
+                <a href="https://telegram.me/parik_katya_bot" target="_blank" rel="noopener noreferrer" style="color: var(--gold);">Студия красоты Катерина: @parik_katya_bot</a></p>
             </div>
         </div>
     </section>
@@ -351,12 +226,25 @@
         
         <div class="footer-contacts">
             <a href="tel:+79852145794" class="btn btn-outline">Позвонить: 8 985 214-57-94</a>
-            <!-- Добавлен onclick -->
-            <a href="https://t.me/parik_katya_bot" onclick="window.open('https://t.me/parik_katya_bot', '_blank'); return false;" class="btn">Студия красоты Катерина: @parik_katya_bot</a>
+            <a href="https://telegram.me/parik_katya_bot" target="_blank" rel="noopener noreferrer" class="btn">Открыть бота в Telegram</a>
         </div>
         
-        <p class="copyright">&copy; 2024 Студия красоты Катерина. Все права защищены.</p>
+        <p class="copyright" style="border: none;">
+            &copy; 2024 Студия красоты Катерина. Все права защищены.<br>
+            <span style="color: var(--gold); font-weight: bold; font-size: 1.1rem; margin-top: 10px; display: inline-block; letter-spacing: 1px;">⚡ Версия сайта 5.0 ⚡</span>
+        </p>
     </footer>
 
+    <!-- Скрипт для копирования ссылки в буфер обмена -->
+    <script>
+        function copyBotLink() {
+            const botLink = "@parik_katya_bot"; // Копируем именно ник для поиска в ТГ
+            navigator.clipboard.writeText(botLink).then(() => {
+                alert("✅ Ник бота скопирован!\n\n1. Откройте Telegram.\n2. Вставьте его в строку поиска (или в Избранное).\n3. Перейдите в бота.");
+            }).catch(err => {
+                alert("Не удалось скопировать. Пожалуйста, выделите и скопируйте ник вручную: @parik_katya_bot");
+            });
+        }
+    </script>
 </body>
 </html>
