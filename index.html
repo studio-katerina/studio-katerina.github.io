@@ -10,7 +10,6 @@
             --bg-dark: #121212;
             --bg-light: #fdfbf7;
             --gold: #c5a059;
-            --gold-hover: #d4af37;
             --text-light: #fdfbf7;
             --text-dark: #333;
         }
@@ -26,7 +25,6 @@
 
         h1, h2, h3, .logo { font-family: 'Playfair Display', serif; }
 
-        /* Шапка */
         header {
             padding: 20px 5%;
             display: flex;
@@ -42,6 +40,7 @@
 
         .logo { font-size: 1.4rem; letter-spacing: 1px; font-style: italic; }
 
+        /* Добавлен z-index и position */
         .btn {
             display: inline-block;
             background-color: var(--gold);
@@ -58,13 +57,14 @@
             letter-spacing: 1px;
             text-align: center;
             line-height: 1.4;
+            position: relative;
+            z-index: 999; /* Защита от перекрытия */
         }
 
         .btn:hover { background-color: transparent; color: var(--gold); }
         .btn-outline { background: transparent; color: var(--gold); }
         .btn-outline:hover { background: var(--gold); color: var(--bg-dark); }
 
-        /* Главный экран */
         .hero {
             display: flex;
             align-items: center;
@@ -76,15 +76,7 @@
             position: relative;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 10% 20%, rgba(197, 160, 89, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .hero-text { flex: 1; z-index: 1; }
+        .hero-text { flex: 1; z-index: 10; }
         .hero-text h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px; font-weight: 400; }
         .hero-text p { font-size: 1.1rem; color: #ccc; margin-bottom: 30px; max-width: 90%; }
 
@@ -97,7 +89,7 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
 
-        .hero-actions { display: flex; flex-direction: column; gap: 15px; align-items: flex-start; }
+        .hero-actions { display: flex; flex-direction: column; gap: 15px; align-items: flex-start; position: relative; z-index: 999; }
         
         .phone-link {
             color: var(--text-light);
@@ -107,6 +99,8 @@
             align-items: center;
             gap: 10px;
             transition: color 0.3s;
+            position: relative;
+            z-index: 999;
         }
         .phone-link:hover { color: var(--gold); }
 
@@ -118,7 +112,6 @@
         }
         .bot-note b { color: var(--gold); }
 
-        /* Слоган */
         .slogan-bar {
             background-color: var(--gold);
             color: var(--bg-dark);
@@ -130,7 +123,6 @@
             letter-spacing: 2px;
         }
 
-        /* Услуги */
         .services { padding: 80px 10%; background: var(--bg-light); }
         .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: var(--bg-dark); }
         
@@ -170,7 +162,6 @@
         .service-list li:last-child { border-bottom: none; }
         .price { font-weight: 600; white-space: nowrap; margin-left: 10px; color: var(--bg-dark); }
 
-        /* Блок "Как записаться" */
         .how-to-book {
             background-color: var(--bg-dark);
             color: var(--text-light);
@@ -209,7 +200,6 @@
 
         .step p { font-size: 1rem; color: #ccc; }
 
-        /* Контакты */
         .contacts { background-color: #fff; padding: 80px 10%; border-top: 1px solid #eee; }
         .contacts-grid {
             display: grid;
@@ -222,7 +212,6 @@
         .contact-item a { color: var(--text-dark); text-decoration: none; transition: color 0.3s; font-weight: 600;}
         .contact-item a:hover { color: var(--gold); }
 
-        /* Футер */
         footer {
             background: var(--bg-dark);
             color: var(--text-light);
@@ -236,7 +225,6 @@
         .footer-contacts { display: flex; justify-content: center; align-items: center; gap: 30px; margin-bottom: 50px; flex-wrap: wrap; }
         .copyright { font-size: 0.8rem; color: #666; border-top: 1px solid #333; padding-top: 20px; }
 
-        /* Адаптивность */
         @media (max-width: 768px) {
             .hero { flex-direction: column; text-align: center; padding: 40px 5%; }
             .hero-text h1 { font-size: 2.5rem; }
@@ -251,7 +239,8 @@
 
     <header>
         <div class="logo">Студия красоты Катерина</div>
-        <a href="https://t.me/parik_katya_bot" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Студия красоты Катерина: @parik_katya_bot</a>
+        <!-- Добавлен onclick -->
+        <a href="https://t.me/parik_katya_bot" onclick="window.open('https://t.me/parik_katya_bot', '_blank'); return false;" class="btn btn-outline">Студия красоты Катерина: @parik_katya_bot</a>
     </header>
 
     <section class="hero">
@@ -260,7 +249,8 @@
             <p>Ваша красота в надёжных руках. Профессиональный уход, стрижки и сложное окрашивание любой сложности. Стиль, уверенность и вдохновение.</p>
             
             <div class="hero-actions">
-                <a href="https://t.me/parik_katya_bot" class="btn" target="_blank" rel="noopener noreferrer">Студия красоты Катерина: @parik_katya_bot</a>
+                <!-- Добавлен onclick -->
+                <a href="https://t.me/parik_katya_bot" onclick="window.open('https://t.me/parik_katya_bot', '_blank'); return false;" class="btn">Студия красоты Катерина: @parik_katya_bot</a>
                 <a href="tel:+79852145794" class="phone-link">📞 8 985 214-57-94</a>
                 <div class="bot-note">💬 Наш умный Telegram-бот <b>@parik_katya_bot</b> покажет свободное время и запишет вас за пару кликов!</div>
             </div>
@@ -331,7 +321,8 @@
                 <p>Подтвердите запись. Бот сразу покажет адрес и напомнит о визите!</p>
             </div>
         </div>
-        <a href="https://t.me/parik_katya_bot" class="btn" target="_blank" rel="noopener noreferrer">Студия красоты Катерина: @parik_katya_bot</a>
+        <!-- Добавлен onclick -->
+        <a href="https://t.me/parik_katya_bot" onclick="window.open('https://t.me/parik_katya_bot', '_blank'); return false;" class="btn">Студия красоты Катерина: @parik_katya_bot</a>
     </section>
 
     <section class="contacts">
@@ -348,7 +339,8 @@
             <div class="contact-item">
                 <h4>📞 Контакты</h4>
                 <p><a href="tel:+79852145794">+7 985 214-57-94</a><br><br>
-                <a href="https://t.me/parik_katya_bot" target="_blank" rel="noopener noreferrer" style="color: var(--gold);">Студия красоты Катерина: @parik_katya_bot</a></p>
+                <!-- Добавлен onclick -->
+                <a href="https://t.me/parik_katya_bot" onclick="window.open('https://t.me/parik_katya_bot', '_blank'); return false;" style="color: var(--gold);">Студия красоты Катерина: @parik_katya_bot</a></p>
             </div>
         </div>
     </section>
@@ -359,7 +351,8 @@
         
         <div class="footer-contacts">
             <a href="tel:+79852145794" class="btn btn-outline">Позвонить: 8 985 214-57-94</a>
-            <a href="https://t.me/parik_katya_bot" class="btn" target="_blank" rel="noopener noreferrer">Студия красоты Катерина: @parik_katya_bot</a>
+            <!-- Добавлен onclick -->
+            <a href="https://t.me/parik_katya_bot" onclick="window.open('https://t.me/parik_katya_bot', '_blank'); return false;" class="btn">Студия красоты Катерина: @parik_katya_bot</a>
         </div>
         
         <p class="copyright">&copy; 2024 Студия красоты Катерина. Все права защищены.</p>
