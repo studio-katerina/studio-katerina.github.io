@@ -44,6 +44,32 @@
         .close { position: absolute; top: 20px; right: 40px; color: #fff; font-size: 50px; font-weight: bold; cursor: pointer; transition: color 0.3s; }
         .close:hover { color: var(--gold); }
 
+        /* Плавающая кнопка "Назад" */
+        .back-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background-color: var(--gold);
+            color: var(--bg-dark);
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+        }
+        .back-btn:hover {
+            background-color: #d4af37;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(197, 160, 89, 0.5);
+            color: var(--bg-dark);
+        }
+
         footer { background: var(--bg-dark); color: var(--text-light); text-align: center; padding: 40px 20px; border-top: 3px solid var(--gold); margin-top: 60px; }
         footer p { color: #bbb; font-size: 0.9rem; }
 
@@ -52,6 +78,7 @@
             .nav-links { flex-wrap: wrap; justify-content: center; }
             .gallery-grid { grid-template-columns: 1fr; }
             .close { right: 20px; top: 10px; font-size: 40px; }
+            .back-btn { bottom: 20px; left: 20px; padding: 10px 15px; font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -71,7 +98,125 @@
         <h2 class="section-title">Портфолио работ</h2>
         
         <div class="gallery-grid">
-            <!-- Картинки галереи -->
+            <!-- НОВАЯ ПАРТИЯ ФОТО -->
+            <div class="gallery-item" onclick="openLightbox('images/blonde_lob_side.jpg')">
+                <img src="images/blonde_lob_side.jpg" alt="Блонд-лоб сбоку">
+                <div class="caption">Блонд-лоб (вид сбоку)</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/black_purple_underlayer.jpg')">
+                <img src="images/black_purple_underlayer.jpg" alt="Скрытое окрашивание в фиолетовый">
+                <div class="caption">Скрытое окрашивание в фиолетовый</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/light_brown_straight_bob.jpg')">
+                <img src="images/light_brown_straight_bob.jpg" alt="Светло-русый прямой боб">
+                <div class="caption">Светло-русый прямой боб</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/dark_straight_bob.jpg')">
+                <img src="images/dark_straight_bob.jpg" alt="Темный прямой боб">
+                <div class="caption">Темный прямой боб</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/caramel_bob_back.jpg')">
+                <img src="images/caramel_bob_back.jpg" alt="Карамельный боб">
+                <div class="caption">Карамельный боб</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/short_blonde_bob_pink.jpg')">
+                <img src="images/short_blonde_bob_pink.jpg" alt="Короткий блонд">
+                <div class="caption">Короткий блонд-боб</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/blonde_lob_back.jpg')">
+                <img src="images/blonde_lob_back.jpg" alt="Блонд-лоб сзади">
+                <div class="caption">Блонд-лоб (вид сзади)</div>
+            </div>
+
+            <!-- ПРЕДЫДУЩАЯ ПАРТИЯ -->
+            <div class="gallery-item" onclick="openLightbox('images/girl_pearl_bow.jpg')">
+                <img src="images/girl_pearl_bow.jpg" alt="Прическа с жемчужным бантом">
+                <div class="caption">Прическа с жемчужным бантом</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/long_wavy_white_bow.jpg')">
+                <img src="images/long_wavy_white_bow.jpg" alt="Длинные волны с белым бантом">
+                <div class="caption">Длинные волны с белым бантом</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/braided_updo_white_bow.jpg')">
+                <img src="images/braided_updo_white_bow.jpg" alt="Прическа с плетением">
+                <div class="caption">Плетение в прическу с белым акцентом</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/sleek_blonde_bob.jpg')">
+                <img src="images/sleek_blonde_bob.jpg" alt="Гладкий блонд каре">
+                <div class="caption">Идеальный гладкий блонд</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/boys_fade_side.jpg')">
+                <img src="images/boys_fade_side.jpg" alt="Мужская стрижка сбоку">
+                <div class="caption">Мужская стрижка (вид сбоку)</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/boys_fade_front.jpg')">
+                <img src="images/boys_fade_front.jpg" alt="Мужская стрижка спереди">
+                <div class="caption">Мужская стрижка (вид спереди)</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/short_grey_hair.jpg')">
+                <img src="images/short_grey_hair.jpg" alt="Стрижка на седые волосы">
+                <div class="caption">Стильная стрижка на седые волосы</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/red_hair_bow.jpg')">
+                <img src="images/red_hair_bow.jpg" alt="Красный цвет и бант">
+                <div class="caption">Яркий красный и крупный бант</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/blonde_wavy_halfup.jpg')">
+                <img src="images/blonde_wavy_halfup.jpg" alt="Локоны с плетением">
+                <div class="caption">Локоны с элементом плетения</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/dark_wavy_bob.jpg')">
+                <img src="images/dark_wavy_bob.jpg" alt="Темные волны">
+                <div class="caption">Объемные темные волны</div>
+            </div>
+
+            <!-- ФОТО С ГЛАВНОЙ СТРАНИЦЫ -->
+            <div class="gallery-item" onclick="openLightbox('images/braid_blue_flowers.jpg')">
+                <img src="images/braid_blue_flowers.jpg" alt="Плетение с цветами">
+                <div class="caption">Плетение с голубыми цветами</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/three_girls.jpg')">
+                <img src="images/three_girls.jpg" alt="Разные оттенки">
+                <div class="caption">Разные оттенки блонда</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/red_bow.jpg')">
+                <img src="images/red_bow.jpg" alt="Окрашивание в красный">
+                <div class="caption">Окрашивание в красный</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/pixie.jpg')">
+                <img src="images/pixie.jpg" alt="Стрижка пикси">
+                <div class="caption">Женская стрижка пикси</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/kids_pink.jpg')">
+                <img src="images/kids_pink.jpg" alt="Цветные пряди">
+                <div class="caption">Цветные пряди</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/extra2.jpg')">
+                <img src="images/extra2.jpg" alt="Мужская стрижка">
+                <div class="caption">Классическая мужская стрижка</div>
+            </div>
+
+            <!-- САМАЯ ПЕРВАЯ ПАРТИЯ ГАЛЕРЕИ -->
             <div class="gallery-item" onclick="openLightbox('images/brown_bob.jpg')">
                 <img src="images/brown_bob.jpg" alt="Каре с удлинением">
                 <div class="caption">Каре с удлинением</div>
@@ -90,11 +235,6 @@
             <div class="gallery-item" onclick="openLightbox('images/review_ekaterina.jpg')">
                 <img src="images/review_ekaterina.jpg" alt="Отзыв клиента">
                 <div class="caption">Отзыв постоянной клиентки</div>
-            </div>
-
-            <div class="gallery-item" onclick="openLightbox('images/pixie_cut.jpg')">
-                <img src="images/pixie_cut.jpg" alt="Женская стрижка пикси">
-                <div class="caption">Женская стрижка пикси</div>
             </div>
 
             <div class="gallery-item" onclick="openLightbox('images/natural_waves.jpg')">
@@ -124,6 +264,9 @@
         <span class="close">&times;</span>
         <img id="lightbox-img" src="" alt="">
     </div>
+
+    <!-- Плавающая кнопка Назад -->
+    <a href="index.html" class="back-btn">← Назад</a>
 
     <footer>
         <p>&copy; <span id="current-year"></span> Студия красоты Катерина. Все права защищены.</p>
