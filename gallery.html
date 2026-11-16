@@ -36,6 +36,9 @@
         .gallery-item img { width: 100%; height: 350px; object-fit: cover; border-radius: 8px; border: 1px solid #e0e0e0; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; }
         .gallery-item img:hover { border-color: var(--gold); box-shadow: 0 15px 35px rgba(197, 160, 89, 0.2); }
         
+        /* Стили для скриншотов отзывов (чтобы текст не обрезался) */
+        .gallery-item img.review-img { object-fit: contain; background-color: #f0f0f0; }
+
         .caption { margin-top: 15px; font-weight: 600; font-size: 1.1rem; color: var(--text-dark); }
 
         /* ЛАЙТБОКС (полноэкранный просмотр) */
@@ -98,7 +101,58 @@
         <h2 class="section-title">Портфолио работ</h2>
         
         <div class="gallery-grid">
-            <!-- ПОСЛЕДНЯЯ ПАРТИЯ -->
+            <!-- САМЫЕ НОВЫЕ ФОТО -->
+            <div class="gallery-item" onclick="openLightbox('images/burgundy_long_hair.jpg')">
+                <img src="images/burgundy_long_hair.jpg" alt="Бордовые длинные волосы">
+                <div class="caption">Бордовое окрашивание</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/blonde_pink_strands.jpg')">
+                <img src="images/blonde_pink_strands.jpg" alt="Блонд с розовыми прядями">
+                <div class="caption">Блонд с яркими розовыми прядями</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/short_ashy_layered_bob.jpg')">
+                <img src="images/short_ashy_layered_bob.jpg" alt="Короткий пепельный боб">
+                <div class="caption">Короткий пепельный слоистый боб</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/rose_gold_long_hair.jpg')">
+                <img src="images/rose_gold_long_hair.jpg" alt="Розово-золотистые волосы">
+                <div class="caption">Розово-золотистый оттенок</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/dark_brown_straight_hair.jpg')">
+                <img src="images/dark_brown_straight_hair.jpg" alt="Темные прямые волосы">
+                <div class="caption">Гладкие темные волосы</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/vivid_red_hair.jpg')">
+                <img src="images/vivid_red_hair.jpg" alt="Яркие красно-малиновые волосы">
+                <div class="caption">Яркое красно-малиновое окрашивание</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/blonde_balayage_wavy_bob.jpg')">
+                <img src="images/blonde_balayage_wavy_bob.jpg" alt="Блонд с темными корнями">
+                <div class="caption">Блонд с темными корнями (балаяж)</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/reviews_yandex_1.jpg')">
+                <img src="images/reviews_yandex_1.jpg" class="review-img" alt="Отзывы клиентов">
+                <div class="caption">Отзывы с Яндекс.Карт</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/reviews_yandex_2.jpg')">
+                <img src="images/reviews_yandex_2.jpg" class="review-img" alt="Отзывы клиентов">
+                <div class="caption">Отзывы с Яндекс.Карт</div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/reviews_yandex_3.jpg')">
+                <img src="images/reviews_yandex_3.jpg" class="review-img" alt="Отзывы клиентов">
+                <div class="caption">Отзывы с Яндекс.Карт</div>
+            </div>
+
+            <!-- ПРЕДЫДУЩАЯ ПАРТИЯ -->
             <div class="gallery-item" onclick="openLightbox('images/blonde_lob_side.jpg')">
                 <img src="images/blonde_lob_side.jpg" alt="Блонд-лоб сбоку">
                 <div class="caption">Блонд-лоб (вид сбоку)</div>
@@ -228,7 +282,7 @@
             </div>
             
             <div class="gallery-item" onclick="openLightbox('images/review_ekaterina.jpg')">
-                <img src="images/review_ekaterina.jpg" alt="Отзыв клиента">
+                <img src="images/review_ekaterina.jpg" class="review-img" alt="Отзыв клиента">
                 <div class="caption">Отзыв постоянной клиентки</div>
             </div>
 
