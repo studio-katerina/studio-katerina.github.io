@@ -1,0 +1,103 @@
+/* ============================================================
+   СТИЛИ ТОЛЬКО ДЛЯ СТРАНИЦЫ ГАЛЕРЕИ (gallery.html)
+   ============================================================ */
+
+.gallery-section { padding: 60px 5%; text-align: center; }
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.gallery-item { cursor: pointer; transition: transform 0.3s; }
+.gallery-item:hover { transform: translateY(-5px); }
+
+.gallery-item img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+.gallery-item img:hover {
+    border-color: var(--gold);
+    box-shadow: 0 15px 35px rgba(197, 160, 89, 0.2);
+}
+
+/* Скриншоты отзывов — не обрезаем */
+.gallery-item img.review-img { object-fit: contain; background-color: #f0f0f0; }
+
+.caption { margin-top: 15px; font-weight: 600; font-size: 1.1rem; color: var(--text-dark); }
+
+/* --- Лайтбокс (полноэкранный просмотр) --- */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(18, 18, 18, 0.95);
+}
+.lightbox img {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 85vh;
+    border: 3px solid var(--gold);
+    border-radius: 8px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.8);
+}
+.close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: #fff;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+.close:hover { color: var(--gold); }
+
+/* --- Плавающая кнопка «Назад» --- */
+.back-btn {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background-color: var(--gold);
+    color: var(--bg-dark);
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+}
+.back-btn:hover {
+    background-color: #d4af37;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(197, 160, 89, 0.5);
+    color: var(--bg-dark);
+}
+
+/* --- Футер галереи (упрощённый) --- */
+footer { padding: 40px 20px; margin-top: 60px; }
+footer p { color: #bbb; font-size: 0.9rem; }
+
+/* --- Мобильная адаптация галереи --- */
+@media (max-width: 768px) {
+    .gallery-grid { grid-template-columns: 1fr; }
+    .close { right: 20px; top: 10px; font-size: 40px; }
+    .back-btn { bottom: 20px; left: 20px; padding: 10px 15px; font-size: 0.9rem; }
+}

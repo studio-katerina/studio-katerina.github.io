@@ -1,0 +1,96 @@
+/* ============================================================
+   ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ СТРАНИЦ
+   Шрифты, переменные, шапка, кнопки, базовый футер.
+   Меняешь здесь — меняется на всём сайте.
+   ============================================================ */
+
+:root {
+    --bg-dark: #121212;
+    --bg-light: #fdfbf7;
+    --gold: #c5a059;
+    --text-light: #fdfbf7;
+    --text-dark: #333;
+    --warning-bg: rgba(197, 160, 89, 0.15);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+h1, h2, h3, .logo { font-family: 'Playfair Display', serif; }
+
+/* --- Шапка --- */
+header {
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-dark);
+    color: var(--gold);
+    border-bottom: 1px solid var(--gold);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo { font-size: 1.4rem; letter-spacing: 1px; font-style: italic; }
+
+.nav-links { display: flex; gap: 20px; align-items: center; }
+.nav-links a {
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+.nav-links a:hover { color: #fff; }
+
+/* --- Кнопки --- */
+.btn {
+    display: inline-block;
+    background-color: var(--gold);
+    color: var(--bg-dark);
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: 1px solid var(--gold);
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-align: center;
+    line-height: 1.4;
+    position: relative;
+    z-index: 999;
+}
+.btn:hover { background-color: transparent; color: var(--gold); }
+
+/* --- Заголовки секций --- */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--bg-dark);
+}
+
+/* --- Базовый футер (общая часть) --- */
+footer {
+    background: var(--bg-dark);
+    color: var(--text-light);
+    text-align: center;
+    border-top: 3px solid var(--gold);
+}
+
+/* --- Мобильная адаптация шапки (общая) --- */
+@media (max-width: 768px) {
+    header { flex-direction: column; gap: 15px; }
+    .nav-links { flex-wrap: wrap; justify-content: center; }
+}
