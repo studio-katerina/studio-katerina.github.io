@@ -28,6 +28,8 @@
             <div class="hero-actions">
                 <a href="https://telegram.me/parik_katya_bot" target="_blank" rel="noopener noreferrer" class="btn">Перейти в Telegram-бот</a>
                 <a href="tel:+79852145794" class="phone-link">📞 8 985 214-57-94</a>
+                <!-- Личный телеграм Кати -->
+                <a href="https://t.me/hair_keti" target="_blank" rel="noopener noreferrer" class="phone-link" style="font-size: 1.1rem;">✈️ @hair_keti</a>
                 
                 <div class="warning-box">
                     <strong>⚠️ ВНИМАНИЕ!</strong> Роскомнадзор может блокировать внешние ссылки на Телеграм. Если кнопка не работает:<br>
@@ -49,6 +51,7 @@
 
     <section class="portfolio">
         <h2 class="section-title">Мои работы</h2>
+        <!-- Сетка заполняется скриптом из photos.js -->
         <div class="portfolio-grid" id="portfolio-grid"></div>
         <a href="gallery.html" class="btn">Смотреть всю галерею</a>
     </section>
@@ -131,8 +134,12 @@
             </div>
             <div class="contact-item">
                 <h4>📞 Контакты</h4>
-                <p><a href="tel:+79852145794">+7 985 214-57-94</a><br><br>
-                <a href="https://telegram.me/parik_katya_bot" target="_blank" rel="noopener noreferrer" style="color: var(--gold);">Студия красоты Катерина: @parik_katya_bot</a></p>
+                <p>
+                    <a href="tel:+79852145794">+7 985 214-57-94</a><br>
+                    <!-- Личный телеграм Кати -->
+                    <a href="https://t.me/hair_keti" target="_blank" rel="noopener noreferrer" style="color: var(--gold);">✈️ @hair_keti</a><br><br>
+                    <a href="https://telegram.me/parik_katya_bot" target="_blank" rel="noopener noreferrer" style="color: var(--gold);">Студия красоты Катерина: @parik_katya_bot</a>
+                </p>
             </div>
         </div>
     </section>
@@ -169,6 +176,7 @@
                 portfolioGrid.appendChild(img);
             });
 
+        // Копирование ника бота
         function copyBotLink() {
             const botLink = "@parik_katya_bot";
             navigator.clipboard.writeText(botLink).then(() => {
@@ -177,6 +185,7 @@
                 alert("Не удалось скопировать. Пожалуйста, выделите и скопируйте ник вручную: @parik_katya_bot");
             });
         }
+
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
