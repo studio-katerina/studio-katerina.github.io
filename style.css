@@ -94,3 +94,24 @@ footer {
     header { flex-direction: column; gap: 15px; }
     .nav-links { flex-wrap: wrap; justify-content: center; }
 }
+
+/* Стили для секции с видео */
+.video-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.video-item video {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    background-color: #000; /* Черный фон, пока видео грузится */
+}
